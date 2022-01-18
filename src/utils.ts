@@ -1,3 +1,4 @@
+import fs from 'fs';
 import Client from 'tdl';
 import { MessageContent, messageText } from 'tdlib-types';
 
@@ -36,4 +37,26 @@ export const getUser = (client: Client, user_id: number) => {
     _: 'getUser',
     user_id: user_id
   });
+};
+
+/**
+ * get info about the logged in user
+ * @param client the {@link Client} to use to access Telegram
+ * @returns a Promise of the current {@link user} object with all the user's data
+ */
+export const getMe = (client: Client) => {
+  return client.invoke({
+    _: 'getMe'
+  });
+};
+
+/**
+ * deletes the database file so old messages aren't seen as new ones
+ */
+export const clearDb = () => {
+  try {
+    fs.unlinkSync('./_td_lib/db.sqlite');
+  } catch (error) {
+    // do nothing because we don't care
+  }
 };

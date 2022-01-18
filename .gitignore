@@ -3,4 +3,5 @@ node_modules/*
 dist/
 dist/*
 _td*/
-.env
+*.env
+*.log

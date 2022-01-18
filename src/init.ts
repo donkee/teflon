@@ -8,7 +8,7 @@ import { TDLib } from 'tdl-tdlib-addon';
  * @returns a {@link Client} that's all set up and ready to go,
  * provided that it is passed the correct environment variables
  */
-export const init = (): Client => {
+export const initializeClient = (): Client => {
   dotenv.config();
 
   // your copy of libtdjson.so here
